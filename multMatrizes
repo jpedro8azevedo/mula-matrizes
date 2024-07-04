@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        System.out.println("Olá, esse programa faz a multiplicação entre duas matrizes (A * B)");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite a quantidade de linhas da matriz A: ");
+        int linhasA = sc.nextInt();
+        System.out.println("Digite a quantidade de colunas da matriz A: ");
+        int colunasA = sc.nextInt();
+        System.out.println("Digite a quantidade de linhas da matriz B: ");
+        int linhasB = sc.nextInt();
+        System.out.println("Digite a quantidade de colunas da matriz B: ");
+        int colunasB = sc.nextInt();
+        String eValido = (colunasA == linhasB) ? "multiplicação possível" : "multiplicação impossível";
+        if (eValido.equals("multiplicação impossível")) {
+            System.exit(0);
+        }
+        
+        int[][] matrizA = new int[linhasA][colunasA];
+        for (int i = 0; i < linhasA; i++) {
+            for (int j = 0; j < colunasA; j++) {
+                int num = sc.nextInt();
+                matrizA[i][j] = num;
+            }
+        }
+        
+        int[][] matrizB = new int[linhasB][colunasB];
+        for (int i = 0; i < linhasB; i++) {
+            for (int j = 0; j < colunasB; j++) {
+                int num = sc.nextInt();
+                matrizB[i][j] = num;
+            }
+        }
+        
+        int[][] matrizAB = new int[linhasA][colunasB];
+        //o for mais externo troca as linhas da matrizA
+        for (int i = 0; i < linhasA; i++) {
+            //o for do meio troca as colunas da mesma linha (com o for mais externo e esse, estou passando em todos os elementos)
+            for (int j = 0; j < colunasB; j++) {
+                matrizAB[i][j] = 0;
+                //esse for é o responsável por gerar o elemento em si.
+                for (int k = 0; k < colunasA; k++) {
+                    matrizAB[i][j] += matrizA[i][k] * matrizB[k][j];
+                }
+            }
+        }
+        
+        System.out.println("Matriz resultante da multiplicação A * B:");
+        for (int i = 0; i < linhasA; i++) {
+            for (int j = 0; j < colunasB; j++) {
+                System.out.print(matrizAB[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        sc.close();
+        
+    }
+}
