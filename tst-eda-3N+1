@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int maiorSeq = 0;
+        for (int i = 0; i < 2; i++) {
+            int tamSeq = 1;
+            int num = sc.nextInt();
+            while (num != 1) {
+                if (num % 2 == 0) {
+                    num /= 2;
+                    tamSeq++;
+                } else {
+                    num *= 3;
+                    num++;
+                    tamSeq++;
+                }
+            if (tamSeq > maiorSeq) {
+                maiorSeq = tamSeq;
+            }
+        }
+        }
+        
+        System.out.println(maiorSeq);
+        
+    }
+}
