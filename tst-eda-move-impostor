@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+class multMatrizes {
+	public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        String entrada[] = sc.nextLine().split(" ");
+        int[] numEntrada = new int[entrada.length];
+        int ultimoElem = Integer.parseInt(entrada[0]);
+        for (int i = 0; i < entrada.length; i++) {
+        	numEntrada[i] = Integer.parseInt(entrada[i]);
+        }
+        int indiceImpostor = -1;
+        for (int i = 0; i < numEntrada.length; i++) {
+        	if (numEntrada[i] < ultimoElem) {
+        		indiceImpostor = i;
+        		break;
+        	} ultimoElem = numEntrada[i];
+        }
+        if (indiceImpostor == -1) {
+        	System.out.print(Arrays.toString(numEntrada));
+        } else {
+        	for (int i = indiceImpostor - 1; i >= 0; i -= 1) {
+            	if (numEntrada[i] > numEntrada[i + 1]) {
+            		int aux = numEntrada[i];
+            		numEntrada[i] = numEntrada[i + 1];
+            		numEntrada[i + 1] = aux;
+            	}
+            }
+        }
+        System.out.print(Arrays.toString(numEntrada));
+        
+	}
+	
+}
