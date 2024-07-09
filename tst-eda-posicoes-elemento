@@ -12,7 +12,7 @@ class Main {
                 out += i + " ";
             }
         }
-        if (out.length() == 1) {
+        if (out.equals("") {
             System.out.println(-1);
         } else {
             System.out.println(out.trim());
