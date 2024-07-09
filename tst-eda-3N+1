@@ -5,9 +5,11 @@ class Main {
         
         Scanner sc = new Scanner(System.in);
         int maiorSeq = 0;
-        for (int i = 0; i < 2; i++) {
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        for (int i = num1; i <= num2; i++) {
             int tamSeq = 1;
-            int num = sc.nextInt();
+            int num = i;
             while (num != 1) {
                 if (num % 2 == 0) {
                     num /= 2;
