@@ -1,0 +1,34 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Main {
+	public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        String[] entrada = sc.nextLine().split(" ");
+        int[] numEntrada = new int[entrada.length];
+        for (int i = 0; i < entrada.length; i++) {
+            numEntrada[i] = Integer.parseInt(entrada[i]);
+        }
+        int qtd = sc.nextInt();
+        for (int j = 0; j < numEntrada.length; j++) {
+            for (int k = j + 1; k < numEntrada.length; k++) {
+                //System.out.println(numEntrada[j] + " > " + numEntrada[k] + " ?");
+                if (numEntrada[j] > numEntrada[k]) {
+                    int aux = numEntrada[j];
+                    numEntrada[j] = numEntrada[k];
+                    numEntrada[k] = aux;
+                }
+                //System.out.println(Arrays.toString(numEntrada));
+            }
+        }
+        
+        String out = "";
+        for (int i = 0; i < qtd; i++) {
+            out += numEntrada[i] + " ";
+        }
+        System.out.println(out.trim());
+        
+	}
+	
+}
