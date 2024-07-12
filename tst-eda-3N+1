@@ -3,15 +3,15 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) {
         
-        Scanner sc = new Scanner(System.in);
-        int maiorSeq = 0;
-        int num1 = sc.nextInt();
-        int num2 = sc.nextInt();
-        for (int i = num1; i <= num2; i++) {
-            int tamSeq = 1;
-            int num = i;
-            while (num != 1) {
-                if (num % 2 == 0) {
+        Scanner sc = new Scanner(System.in); //c1-1
+        int maiorSeq = 0; //c2-1
+        int num1 = sc.nextInt(); //c3-1
+        int num2 = sc.nextInt(); //c4-1
+        for (int i = num1; i <= num2; i++) { //c5-1, c6-n, c7-n - 1
+            int tamSeq = 1; //c8-1
+            int num = i; //c9-1
+            while (num != 1) { 
+                if (num % 2 == 0) { 
                     num /= 2;
                     tamSeq++;
                 } else {
@@ -29,3 +29,5 @@ class Main {
         
     }
 }
+
+// n = |num2 - num1| + 1
