@@ -4,19 +4,27 @@ import java.util.Arrays;
 class multMatrizes {
 	public static void main(String[] args) {
         
-	        Scanner sc = new Scanner(System.in);
-	        String[] entrada = sc.nextLine().split(" ");
-	        int[] numEntrada = new int[entrada.length];
-	        for (int i = 0; i < entrada.length; i++) {
-	            numEntrada[i] = Integer.parseInt(entrada[i]);
+	        Scanner sc = new Scanner(System.in); //c1-1
+	        String[] entrada = sc.nextLine().split(" "); //c2-1
+	        int[] numEntrada = new int[entrada.length]; //c3-1
+	        for (int i = 0; i < entrada.length; i++) { //c4-1, c5-n+1, c6-n
+	            numEntrada[i] = Integer.parseInt(entrada[i]); //c7-n
 	        }
-	        int tamanho = (numEntrada.length % 2 == 0) ? numEntrada.length : numEntrada.length - 1;
-	        for (int i = 0; i < tamanho; i += 2) {
-	        	int aux = numEntrada[i];
-	        	numEntrada[i] = numEntrada[i + 1];
-	        	numEntrada[i + 1] = aux;
+	        int tamanho = (numEntrada.length % 2 == 0) ? numEntrada.length : numEntrada.length - 1; //c8-1
+	        for (int i = 0; i < tamanho; i += 2) { //c9-1, c10-n + 1, c11-n
+	        	int aux = numEntrada[i]; //c12-n
+	        	numEntrada[i] = numEntrada[i + 1]; //c13-n
+	        	numEntrada[i + 1] = aux; //c14-n
 	        }
 	        System.out.println(Arrays.toString(numEntrada));
         
     }
 }
+
+// n = entrada.length
+// pior caso tanto faz se entrada tem tamanho par ou ímpar, isso talvez aumentasse 1 primitiva,
+// mas os coeficientes e expoentes de menores magnitudes são ignorados na análise assintótica.
+
+// f(n) = c1 + c2 + c3 + c4 + c5 * (n + 1) + c6 * n + c7 * n + c8 + c9 + c10 * (n + 1) + c11 * n + c12 * n + c13 * n + c14 * n
+// f(n) = 6 * 1 + 2 * (n + 1) + 6 * n
+// f(n) = O(n)
