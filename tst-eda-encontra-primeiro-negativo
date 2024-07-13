@@ -3,22 +3,22 @@ import java.util.Scanner;
 class multMatrizes {
 	public static void main(String[] args) {
         
-        Scanner sc = new Scanner(System.in);
-        String[] entrada = sc.nextLine().split(" ");
-        int[] numEntrada = new int[entrada.length];
-        for (int i = 0; i < entrada.length; i++) {
-        	numEntrada[i] = Integer.parseInt(entrada[i]);
+        Scanner sc = new Scanner(System.in); //c1-1
+        String[] entrada = sc.nextLine().split(" "); //c2-1
+        int[] numEntrada = new int[entrada.length]; //c3-1
+        for (int i = 0; i < entrada.length; i++) { //c4-1, c5-n + 1, c6-n
+        	numEntrada[i] = Integer.parseInt(entrada[i]); //c7-n
         }
-        int i = 0;
+        int i = 0; //c8-1
         System.out.println(primeiroNegativo(numEntrada, i));      
     }
 	
 	public static String primeiroNegativo(int[] numEntrada, int i) {
 		
-		String out = "";
-		if (i >= numEntrada.length) {
+		String out = ""; //c9-1
+		if (i >= numEntrada.length) { //c10-1
 			return out += "-";
-		} else if (numEntrada[i] < 0) {
+		} else if (numEntrada[i] < 0) { //c11-1
 			return out += numEntrada[i];
 		} else {
 			return primeiroNegativo(numEntrada, i + 1);
@@ -27,3 +27,6 @@ class multMatrizes {
 	}
 	
 }
+
+// n = entrada.length
+// pior caso é quando não encontra nenhum numero negativo.
